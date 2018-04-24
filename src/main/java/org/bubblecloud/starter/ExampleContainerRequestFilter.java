@@ -12,10 +12,10 @@ import javax.ws.rs.container.ContainerRequestFilter;
 
 public class ExampleContainerRequestFilter implements ContainerRequestFilter {
     @Override
-    public void filter(ContainerRequestContext filterContext) throws IOException {
+    public void filter(final ContainerRequestContext filterContext) throws IOException {
         System.out.println("Container request filter invoked. " + filterContext.getUriInfo().getRequestUri());
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        InputStream in = filterContext.getEntityStream();
+        final ByteArrayOutputStream out = new ByteArrayOutputStream();
+        final InputStream in = filterContext.getEntityStream();
         try {
             if (in.available() > 0) {
                 ReaderWriter.writeTo(in, out);

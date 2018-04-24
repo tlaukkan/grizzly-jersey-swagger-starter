@@ -24,7 +24,7 @@ public class Server {
     }
 
     public static Server start() throws IOException {
-        BeanConfig beanConfig = new BeanConfig();
+        final BeanConfig beanConfig = new BeanConfig();
         beanConfig.setVersion("1.0.2");
         beanConfig.setSchemes(new String[]{"http"});
         beanConfig.setHost(SERVER_URI.getHost() + ":" + SERVER_URI.getPort());
@@ -32,7 +32,7 @@ public class Server {
         beanConfig.setResourcePackage("org.bubblecloud.starter");
         beanConfig.setScan(true);
 
-        ResourceConfig rc = new ResourceConfig();
+        final ResourceConfig rc = new ResourceConfig();
         rc.registerClasses(
                 TestResource.class,
                 ExampleContainerRequestFilter.class,
